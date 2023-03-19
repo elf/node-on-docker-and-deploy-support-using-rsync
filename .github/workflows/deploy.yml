@@ -28,5 +28,5 @@ jobs:
     - name: Docker Management
       run: |
               ssh ${{ secrets.PROD_DEPLOY_SSH_USER }}@${{secrets.PROD_DEPLOY_SSH_HOST }} 'cd ${{ secrets.PROD_DEPLOY_TARGET_DIR }} && docker compose up -d'
-              ssh ${{ secrets.PROD_DEPLOY_SSH_USER }}@${{secrets.PROD_DEPLOY_SSH_HOST }} 'cd ${{ secrets.PROD_DEPLOY_TARGET_DIR }} && docker compose run --entrypoint pip --rm web install -r requirements.txt'
+              ssh ${{ secrets.PROD_DEPLOY_SSH_USER }}@${{secrets.PROD_DEPLOY_SSH_HOST }} 'cd ${{ secrets.PROD_DEPLOY_TARGET_DIR }} && docker compose run --rm app npm install'
               ssh ${{ secrets.PROD_DEPLOY_SSH_USER }}@${{secrets.PROD_DEPLOY_SSH_HOST }} 'cd ${{ secrets.PROD_DEPLOY_TARGET_DIR }} && docker compose restart web'
