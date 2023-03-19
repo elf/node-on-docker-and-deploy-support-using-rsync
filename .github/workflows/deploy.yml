@@ -27,6 +27,6 @@ jobs:
       run: rsync -avz --delete --exclude-from=.deployignore . ${{ secrets.PROD_DEPLOY_SSH_USER }}@${{secrets.PROD_DEPLOY_SSH_HOST }}:${{ secrets.PROD_DEPLOY_TARGET_DIR }}
     - name: Docker Management
       run: |
-              ssh ${{ secrets.PROD_DEPLOY_SSH_USER }}@${{secrets.PROD_DEPLOY_SSH_HOST }} 'cd ${{ secrets.PROD_DEPLOY_TARGET_DIR }} && docker compose up -d'
               ssh ${{ secrets.PROD_DEPLOY_SSH_USER }}@${{secrets.PROD_DEPLOY_SSH_HOST }} 'cd ${{ secrets.PROD_DEPLOY_TARGET_DIR }} && docker compose run --rm app npm install'
-              ssh ${{ secrets.PROD_DEPLOY_SSH_USER }}@${{secrets.PROD_DEPLOY_SSH_HOST }} 'cd ${{ secrets.PROD_DEPLOY_TARGET_DIR }} && docker compose restart web'
+              ssh ${{ secrets.PROD_DEPLOY_SSH_USER }}@${{secrets.PROD_DEPLOY_SSH_HOST }} 'cd ${{ secrets.PROD_DEPLOY_TARGET_DIR }} && docker compose up -d'
+              #ssh ${{ secrets.PROD_DEPLOY_SSH_USER }}@${{secrets.PROD_DEPLOY_SSH_HOST }} 'cd ${{ secrets.PROD_DEPLOY_TARGET_DIR }} && docker compose restart app'
