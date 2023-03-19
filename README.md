@@ -37,6 +37,6 @@ euEebRrt5VTH9PqwstT55oqZ1Shi8hxT7jvrP5p+mLiHiAoK9AYodgNi+eoW+BoWIvmgCh
 
 Specify the ssh user to be used for deployment.
 
-＃References
+# References
 
 - https://github.com/actions/checkout
